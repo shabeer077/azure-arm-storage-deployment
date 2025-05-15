@@ -1,0 +1,44 @@
+Deploy azure resources using arm templates
+
+ Steps Followed to Deploy the Storage Account
+Created a new folder in local system to organize the project files:
+
+bash
+Copy
+Edit
+mkdir dummy3
+cd dummy3
+Created an ARM template named storage-account.json with the following structure:
+
+json
+Copy
+Edit
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-05-01",
+      "name": "shabeerstore2025",
+      "location": "[resourceGroup().location]",
+      "kind": "StorageV2",
+      "sku": {
+        "name": "Premium_LRS",
+        "tier": "Premium"
+      }
+    }
+  ]
+}
+Logged in to Azure via CLI:
+
+bash
+Copy
+Edit
+az login
+Verified existing Resource Group or created one if not available:
+
+bash
+Copy
+Edit
+az group list --output table
