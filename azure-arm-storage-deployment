@@ -1,14 +1,39 @@
-Deploy azure resources using arm templates
+#  Deploy Azure Storage Account using ARM Template
 
- Steps Followed to Deploy the Storage Account
-Created a new folder in local system to organize the project files:
+This project demonstrates how to deploy an Azure Storage Account using Azure Resource Manager (ARM) templates via Azure CLI.
 
-bash
+---
+
+## 🛠 Tools Used
+
+- Azure CLI
+- Visual Studio Code
+- ARM Templates
+- Azure Portal
+
+---
+
+##  Folder Structure
+
+dummy3/
+│
+└── storage-account.json
+
+yaml
 Copy
 Edit
+
+---
+
+## ✅ Steps Followed
+
+### 1. Create Project Directory
+
+```bash
 mkdir dummy3
 cd dummy3
-Created an ARM template named storage-account.json with the following structure:
+2. Create the ARM Template File
+Create a file named storage-account.json with the following content:
 
 json
 Copy
@@ -30,34 +55,36 @@ Edit
     }
   ]
 }
-Logged in to Azure via CLI:
-
+3. Login to Azure
 bash
 Copy
 Edit
 az login
-Verified existing Resource Group or created one if not available:
+4. Verify or Create Resource Group
+List existing resource groups:
 
 bash
 Copy
 Edit
 az group list --output table
+Or create a new one:
 
-Deployed the ARM Template using Azure CLI:
+bash
+Copy
+Edit
+az group create --name vscode --location centralus
+5. Deploy ARM Template
+Run the following command:
 
 bash
 Copy
 Edit
 az deployment group create --resource-group vscode --template-file storage-account.json
-Verified deployment status, which showed provisioningState: Succeeded.
+6. Confirm Deployment
+You should see a response with "provisioningState": "Succeeded" and your storage account visible in the Azure portal.
 
-Checked Azure Portal to confirm that the Storage Account was created successfully in the selected resource group.
+ Result
+A new Azure Storage Account named shabeerstore2025 was created successfully in the vscode resource group using ARM templates.
 
-📁 Directory Structure
-pgsql
-Copy
-Edit
-dummy3/
-│
-├── storage-account.json
+Deployment was fully automated using JSON and Azure CLI.
 
