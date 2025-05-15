@@ -42,3 +42,22 @@ bash
 Copy
 Edit
 az group list --output table
+
+Deployed the ARM Template using Azure CLI:
+
+bash
+Copy
+Edit
+az deployment group create --resource-group vscode --template-file storage-account.json
+Verified deployment status, which showed provisioningState: Succeeded.
+
+Checked Azure Portal to confirm that the Storage Account was created successfully in the selected resource group.
+
+📁 Directory Structure
+pgsql
+Copy
+Edit
+dummy3/
+│
+├── storage-account.json
+
